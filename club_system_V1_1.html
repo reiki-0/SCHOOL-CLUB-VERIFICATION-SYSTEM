@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phinma COC Club Verification System</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 50%, #fffde7 100%);
+            background-attachment: fixed;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 70px; 
+            padding-left: 30px;  
+            padding-right: 30px;  
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #004B23; 
+            padding: 12px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;  
+            gap: 10px;        
+            text-decoration: none;
+            padding-left: 30px;
+        }
+
+        .navbar-logo img {
+            height: 45px;    
+            width: auto;
+            object-fit: contain;
+        }
+
+        .navbar-logo span {
+            color: #FFD700; 
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            white-space: nowrap; 
+        }
+
+        .navbar-logo:hover span {
+            color: #fff;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            gap: 35px;
+            padding-right: 30px;
+            margin: 0; 
+        }
+
+        .navbar li a {
+            color: #FFD700; 
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .navbar li a:hover {
+            background-color: #FFD700;
+            color: #004B23; 
+        }
+
+
+        .container {
+            width: 92%;   
+            max-width: 1500px; 
+            margin: 20px auto;  
+            background-color: rgba(255, 255, 255, 0.96);
+            padding: 45px 50px; 
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,75,35,0.15);
+        }
+
+
+        h1 {
+            color: #004B23;
+            text-align: center;
+            font-size: 34px;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #006630;
+            font-size: 26px;
+            margin-top: 40px;
+            margin-bottom: 18px;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: #008543;
+            font-size: 21px;
+            margin-top: 28px;
+            margin-bottom: 14px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+            font-size: 16px;  
+            line-height: 1.7;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 19px;
+            margin-bottom: 25px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        a {
+            color: #008543;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #FFD700;
+            text-decoration: underline;
+        }
+
+        button {
+            background-color: #004B23;
+            color: white;
+            padding: 11px 24px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            margin: 6px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #FFD700;
+            color: #004B23;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(255,215,0,0.3);
+        }
+
+        .info-box {
+            background-color: #e8f5e9;
+            border-left: 5px solid #008543;
+            padding: 22px 25px;
+            margin: 22px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background-color: #fff8e1;
+            border-left: 5px solid #FFD700;
+            padding: 22px 25px;
+            margin: 22px 0;
+            border-radius: 5px;
+        }
+
+        .feature-box {
+            background-color: #f9f9f9;
+            border: 2px solid #008543;
+            padding: 22px 25px;
+            margin: 18px 0;
+            border-radius: 8px;
+        }
+
+        ul, ol {
+            margin-left: 32px;
+            margin-bottom: 18px;
+        }
+
+        li {
+            margin-bottom: 11px;
+            font-size: 15.5px;
+            line-height: 1.6;
+        }
+
+        strong {
+            color: #004B23;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 18px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 13.5px;
+            margin: 18px 0;
+            border-radius: 5px;
+            line-height: 1.5;
+        }
+
+        code {
+            background-color: #e8f5e9;
+            color: #004B23;
+            padding: 3px 7px;
+            font-family: 'Courier New', monospace;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 22px 0;
+        }
+
+        th, td {
+            border: 1px solid #008543;
+            padding: 13px 15px;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        th {
+            background-color: #004B23;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, #004B23, #FFD700, #004B23);
+            margin: 45px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 55px;
+            padding-top: 25px;
+            border-top: 3px solid #004B23;
+            color: #666;
+            font-size: 15px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .demo-info {
+            background: linear-gradient(135deg, #004B23 0%, #008543 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 10px;
+            margin: 32px 0;
+            box-shadow: 0 5px 15px rgba(0,75,35,0.3);
+        }
+
+        .demo-info h3 {
+            color: #FFD700;
+            font-size: 23px;
+        }
+
+        .credential-card {
+            background-color: rgba(255, 255, 255, 0.96);
+            color: #333;
+            padding: 22px 25px;
+            margin: 18px 0;
+            border-radius: 8px;
+            border-left: 5px solid #FFD700;
+        }
+
+        .credential-card h4 {
+            color: #004B23;
+            margin-bottom: 14px;
+            font-size: 19px;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                width: 95%;
+                padding: 35px 40px;
+            }
+            
+            body {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            
+            .navbar-logo {
+                padding-left: 0;
+                justify-content: center;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            .navbar-logo img {
+                height: 35px;
+            }
+            
+            .navbar ul {
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+                padding-right: 0;
+            }
+            
+            .container {
+                width: 98%;
+                margin: 10px auto;
+                padding: 25px 20px;
+            }
+            
+            body {
+                padding-top: 140px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">
+            <img src="https://sis-coc.phinma.edu.ph/image/login/logo_college.png" alt="PHINMA COC logo">
+            <span>PHINMA COC</span>
+        </a>
+        
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#demo">Demo Info</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#code">Code</a></li>
+        </ul>
+    </nav>
+
+<div class="container">
+
+    <h1>Phinma COC Club Verification System</h1>
+    <p class="subtitle">Java Console Application - Project Documentation</p>
+    
+    <div class="center">
+        <p class="center">A comprehensive <strong>club management system</strong> built as a <strong>Java Console Application</strong> for PHINMA COC students, featuring menu-driven interfaces for both <strong>Administrator</strong> and <strong>Student</strong> users with real-time data management using ArrayList data structures.</p>
+    </div>
+
+    <hr>
+
+    <h2 id="overview">System Overview</h2>
+    
+    <h3>What is this system?</h3>
+    <p>This is a <strong>School Club Registration and Verification System Using Student ID</strong> designed for PHINMA COC to streamline the process of student club membership and administration. Built as a <strong>Java Console Application</strong>, it provides a menu-driven interface for both students and administrators.</p>
+
+    <h3>Main Features:</h3>
+    <ul>
+        <li><strong>Student Registration with Validation:</strong> Students register using 11-digit numeric ID, Full Name (letters/spaces/hyphens/apostrophes/periods only, minimum 2 characters), and Year Level selection (1st-4th Year)</li>
+        <li><strong>Default Department Assignment:</strong> All students are automatically assigned to <strong>CITE</strong> department upon registration</li>
+        <li><strong>Club Membership:</strong> Join from 5 different school clubs: Basketball, Volleyball, Chess, Badminton, or Billiards</li>
+        <li><strong>Status-Based Workflow:</strong> Dynamic system that adapts to current status - No Club → Pending → Active, with Pending Leave option for active members</li>
+        <li><strong>Admin Approval System:</strong> Administrators verify join requests and process leave requests through a dedicated dashboard</li>
+        <li><strong>Activity Announcements:</strong> Admins can post school activities and events visible to all students</li>
+    </ul>
+
+    <div class="info-box">
+        <h3>Administrator Dashboard (4 Main Functions)</h3>
+        <ul>
+            <li><strong>1. Verify JOIN Requests:</strong> Review pending student applications, view their details (ID, Name, Year, Department, Requested Club), and approve or reject membership</li>
+            <li><strong>2. Verify LEAVE Requests:</strong> Process pending leave requests, review the student's reason for leaving, and allow or deny the request</li>
+            <li><strong>3. View Members:</strong> Generate complete membership report showing all active students with their ID, Name, Year, Department, and Club affiliation</li>
+            <li><strong>4. Post Activity/Event:</strong> Update the school announcement that all students can view from their dashboard</li>
+        </ul>
+    </div>
+
+    <div class="warning-box">
+        <h3>Student Dashboard (3 Main Options)</h3>
+        <p><strong>Menu Options Available to Students:</strong></p>
+        <ol>
+            <li><strong>Register to a Club:</strong> Status-dependent functionality:
+                <ul>
+                    <li><em>If No Club:</em> Browse 5 available clubs and submit join request</li>
+                    <li><em>If Pending:</em> Change club selection or cancel current request</li>
+                    <li><em>If Active:</em> Option to leave current club (requires reason)</li>
+                    <li><em>If Pending Leave:</em> Cancel leave request or wait for admin approval</li>
+                </ul>
+            </li>
+            <li><strong>Check Verification Status:</strong> View complete profile including Student ID, Name, Year Level, Department, and current status:
+                <ul>
+                    <li><em>No Club:</em> Not a member of any club</li>
+                    <li><em>Pending:</em> Waiting for admin verification on club request</li>
+                    <li><em>Active:</em> Verified member of a specific club</li>
+                    <li><em>Pending Leave:</em> Leave request submitted, waiting for admin decision</li>
+                </ul>
+            </li>
+            <li><strong>View Activities/Events:</strong> Display current school announcement posted by administrator</li>
+        </ol>
+    </div>
+
+    <hr>
+
+    <h2 id="features">Detailed Features</h2>
+    
+    <h3>1. Authentication & Registration System</h3>
+    <div class="feature-box">
+        <h4>Admin Login Process:</h4>
+        <ul>
+            <li><strong>3 Predefined Admin Accounts:</strong> admin/admin123, prof/prof123, teach/teach123</li>
+            <li><strong>Username/Password Validation:</strong> Case-insensitive username check, exact password match</li>
+            <li><strong>Exit Options:</strong> Type 'exit' to quit program or 'back' to return to user type selection</li>
+        </ul>
+        
+        <h4 style="margin-top: 20px;">Student Registration/Login Process:</h4>
+        <ol>
+            <li><strong>11-Digit Student ID Validation:</strong>
+                <ul>
+                    <li>Must be exactly 11 characters long</li>
+                    <li>Must contain ONLY numeric digits (no letters or symbols)</li>
+                    <li>Error messages show exact character count entered</li>
+                </ul>
+            </li>
+            <li><strong>Full Name Validation:</strong>
+                <ul>
+                    <li>Cannot be empty</li>
+                    <li>Minimum 2 characters required</li>
+                    <li>Numbers are NOT allowed</li>
+                    <li>Special characters allowed: spaces, hyphens (-), apostrophes ('), periods (.)</li>
+                </ul>
+            </li>
+            <li><strong>Year Level Selection (Menu):</strong>
+                <ul>
+                    <li>Option 1: 1st Year</li>
+                    <li>Option 2: 2nd Year</li>
+                    <li>Option 3: 3rd Year</li>
+                    <li>Option 4: 4th Year</li>
+                    <li>Option 0: Go Back</li>
+                </ul>
+            </li>
+            <li><strong>Automatic Account Creation:</strong>
+                <ul>
+                    <li>New students: Account created with status "No Club", department set to "CITE"</li>
+                    <li>Returning students: Name must match registered name exactly (case-insensitive)</li>
+                    <li>Default password for all students: <code>1234</code></li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h3>2. Student Dashboard - Status-Based Logic</h3>
+    <div class="info-box">
+        <h4>When student chooses "Register to a Club":</h4>
+        
+        <p><strong>Status: No Club (or null)</strong></p>
+        <ul>
+            <li>Display list of 5 clubs: Basketball, Volleyball, Chess, Badminton, Billiards</li>
+            <li>Student selects club by number (1-5) or enters 0 to go back</li>
+            <li>System updates: Status → "Pending", RequestedClub → selected club</li>
+            <li>Shows confirmation with full student details and "Waiting for admin verification..." message</li>
+        </ul>
+
+        <p><strong>Status: Pending</strong></p>
+        <ul>
+            <li>Shows current pending request</li>
+            <li>Options:
+                <ol>
+                    <li><strong>Change Club:</strong> Select different club from list, updates requested club</li>
+                    <li><strong>Cancel Request:</strong> Status reverts to "No Club", requested club cleared</li>
+                    <li><strong>Go Back:</strong> Return to main menu</li>
+                </ol>
+            </li>
+        </ul>
+
+        <p><strong>Status: Active</strong></p>
+        <ul>
+            <li>Shows current verified club membership</li>
+            <li>Option to leave club:
+                <ol>
+                    <li><strong>Yes:</strong> Must enter reason (cannot be empty), Status → "Pending Leave"</li>
+                    <li><strong>No:</strong> Return to dashboard</li>
+                    <li><strong>Go Back:</strong> Return to main menu</li>
+                </ol>
+            </li>
+        </ul>
+
+        <p><strong>Status: Pending Leave</strong></p>
+        <ul>
+            <li>Shows current club and pending leave status</li>
+            <li>Options:
+                <ol>
+                    <li><strong>Cancel Request:</strong> Status reverts to "Active", leave reason cleared</li>
+                    <li><strong>No:</strong> Keep waiting for admin approval</li>
+                    <li><strong>Go Back:</strong> Return to main menu</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+    <h3>3. Administrative Panel - Exact Workflow</h3>
+    <div class="warning-box">
+        <h4>Option 1: Verify JOIN Requests</h4>
+        <ol>
+            <li>System displays all students with status "Pending" showing: ID, Name, Year, Department, Requesting Club</li>
+            <li>Admin enters Student ID to process (or presses Enter/0 to go back)</li>
+            <li>If ID found with pending request:
+                <ul>
+                    <li><strong>Approve (1):</strong> Status → "Active", JoinedClub = RequestedClub, RequestedClub cleared</li>
+                    <li><strong>Reject (2):</strong> Status → "No Club", RequestedClub cleared</li>
+                    <li><strong>Go Back (0):</strong> Return to dashboard, request remains pending</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h4>Option 2: Verify LEAVE Requests</h4>
+        <ol>
+            <li>System displays all students with status "Pending Leave" showing: ID, Name, Current Club, Reason</li>
+            <li>Admin enters Student ID to process (or presses Enter/0 to go back)</li>
+            <li>If ID found with pending leave:
+                <ul>
+                    <li><strong>Allow (1):</strong> Status → "No Club", JoinedClub cleared, LeaveReason cleared</li>
+                    <li><strong>Deny (2):</strong> Status → "Active", LeaveReason cleared (student remains in club)</li>
+                    <li><strong>Go Back (0):</strong> Return to dashboard, request remains pending</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h4>Option 3: View Members</h4>
+        <ul>
+            <li>Displays all students with status "Active"</li>
+            <li>Shows complete profile: ID, Name, Year, Department, Club</li>
+            <li>Message "No active members found" if list is empty</li>
+        </ul>
+
+        <h4>Option 4: Post Activity/Event</h4>
+        <ul>
+            <li>Displays current announcement</li>
+            <li>Admin enters new announcement text (or 0 to go back)</li>
+            <li>Validation: Announcement cannot be empty</li>
+            <li>Updates global announcement variable visible to all students</li>
+        </ul>
+    </div>
+
+    <h3>4. Data Management Architecture</h3>
+    <table>
+        <tr>
+            <th>Component</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><strong>ArrayList Storage</strong></td>
+            <td>Dynamic data structures for scalable student record management (9 ArrayLists + global variables)</td>
+        </tr>
+        <tr>
+            <td><strong>State Management</strong></td>
+            <td>Real-time status tracking with 4 states: No Club, Pending, Active, Pending Leave</td>
+        </tr>
+        <tr>
+            <td><strong>Session Control</strong></td>
+            <td>Secure login/logout functionality with boolean flags and user index tracking</td>
+        </tr>
+        <tr>
+            <td><strong>Error Handling</strong></td>
+            <td>Comprehensive InputMismatchException handling and input validation</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h2 id="demo">Application Demo Information</h2>
+    
+
+    <div class="demo-info">
+        <h3 class="center">Quick Start Guide - Java Console Application</h3>
+        
+        <div class="credential-card">
+            <h4>Administrator Login Credentials</h4>
+            <p style="margin-bottom: 12px;">Choose option <strong>1. ADMIN</strong> at main menu, then enter:</p>
+            <table>
+                <tr>
+                    <th>Username</th>
+                    <th>Password</th>
+                </tr>
+                <tr>
+                    <td><code>admin</code></td>
+                    <td><code>admin123</code></td>
+                </tr>
+                <tr>
+                    <td><code>prof</code></td>
+                    <td><code>prof123</code></td>
+                </tr>
+                <tr>
+                    <td><code>teach</code></td>
+                    <td><code>teach123</code></td>
+                </tr>
+            </table>
+            <p style="margin-top: 10px; font-size: 14px;"><em>Note: Username is case-insensitive (e.g., 'Admin', 'ADMIN', 'admin' all work)</em></p>
+        </div>
+
+        <div class="credential-card">
+            <h4>Student Registration/Login</h4>
+            <p style="margin-bottom: 12px;">Choose option <strong>2. USER</strong> at main menu, then enter:</p>
+            <table>
+                <tr>
+                    <th>Field</th>
+                    <th>Value / Rules</th>
+                </tr>
+                <tr>
+                    <td><strong>Student ID</strong></td>
+                    <td>Any <strong>11-digit number only</strong> (e.g., 20211234567)<br><em>No letters or symbols allowed</em></td>
+                </tr>
+                <tr>
+                    <td><strong>Full Name</strong></td>
+                    <td>Your complete name<br><em>Letters, spaces, -, ', . only<br>Minimum 2 characters, no numbers</em></td>
+                </tr>
+                <tr>
+                    <td><strong>Year Level</strong></td>
+                    <td>Select: 1st Year, 2nd Year, 3rd Year, or 4th Year</td>
+                </tr>
+                <tr>
+                    <td><strong>Department</strong></td>
+                    <td>Automatically set to <strong>CITE</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Password</strong></td>
+                    <td><code>1234</code> (default for all students)</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="credential-card">
+            <h4>Available Clubs</h4>
+            <p style="text-align: center; font-size: 17px;">
+                <strong>Basketball</strong> • 
+                <strong>Volleyball</strong> • 
+                <strong>Chess</strong> • 
+                <strong>Badminton</strong> • 
+                <strong>Billiards</strong>
+            </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2 id="architecture">Technical Architecture</h2>
+    
+    <h3>Java Console Application - Data Structures</h3>
+    
+    <pre>// Core Data Storage - 9 ArrayLists + 1 String variable
+ArrayList&lt;String&gt; studentIds            // Stores 11-digit student IDs
+ArrayList&lt;String&gt; studentNames          // Full names (validated: letters &amp; select special chars)
+ArrayList&lt;String&gt; studentYears          // Year levels (e.g., "1st Year", "2nd Year")
+ArrayList&lt;String&gt; studentDepartments    // Department (default: "CITE")
+ArrayList&lt;String&gt; studentStatus         // Current status: "No Club" | "Pending" | "Active" | "Pending Leave"
+ArrayList&lt;String&gt; studentJoinedClub     // Currently active club membership (when status = "Active")
+ArrayList&lt;String&gt; studentRequestedClub  // Pending club request (when status = "Pending")
+ArrayList&lt;String&gt; studentLeaveReason    // Reason for leaving (when status = "Pending Leave")
+
+// Global Announcement
+String schoolAnnouncement               // School activity/event visible to all students
+
+// Admin Credentials (Arrays)
+String[] admin = {"admin", "prof", "teach"};
+String[] adminPassword = {"admin123", "prof123", "teach123"};
+
+// Available Clubs (Array)
+String[] schoolClub = {"Basketball", "Volleyball", "Chess", "Badminton", "Billiards"};</pre>
+
+    <h3>Key Java Implementation Details:</h3>
+    <ul>
+        <li><strong>Console I/O with Scanner:</strong> All user input through <code>scanner.nextLine()</code> and <code>scanner.nextInt()</code></li>
+        <li><strong>Comprehensive Input Validation:</strong>
+            <ul>
+                <li>Numeric validation for Student ID (Character.isDigit check)</li>
+                <li>Name validation (no numbers, allowed special characters, minimum length)</li>
+                <li>Empty field checks with error messages</li>
+                <li>InputMismatchException handling for numeric inputs</li>
+            </ul>
+        </li>
+        <li><strong>Session Management:</strong> Boolean flags control program flow:
+            <ul>
+                <li><code>menuRunning</code>: Main program loop</li>
+                <li><code>userRunning</code> / <code>adminRunning</code>: User-specific dashboard loops</li>
+                <li><code>isStudent</code>: Distinguishes student vs admin session</li>
+                <li><code>currentUserIndex</code>: Tracks current user's position in ArrayLists (-1 if not logged in)</li>
+            </ul>
+        </li>
+        <li><strong>Menu-Driven Interface:</strong> Switch-case statements for all user choices with default error handling</li>
+        <li><strong>Status State Machine:</strong> Four-state workflow (No Club → Pending → Active → Pending Leave → No Club)</li>
+        <li><strong>Dynamic Account Handling:</strong> New students auto-created on first login, returning students verified by name match</li>
+    </ul>
+
+    <h3>User Interaction Flow</h3>
+    <table>
+        <tr>
+            <th>Step</th>
+            <th>Action</th>
+            <th>System Response</th>
+        </tr>
+        <tr>
+            <td><strong>1. Launch</strong></td>
+            <td>Run Java program</td>
+            <td>Main menu: Choose ADMIN (1), USER (2), or Exit (0)</td>
+        </tr>
+        <tr>
+            <td><strong>2. Login</strong></td>
+            <td>Enter credentials/registration info</td>
+            <td>Validation → Success or Error message with specific feedback</td>
+        </tr>
+        <tr>
+            <td><strong>3. Dashboard</strong></td>
+            <td>Select menu option (1-4 or 0)</td>
+            <td>Status-dependent options displayed based on current state</td>
+        </tr>
+        <tr>
+            <td><strong>4. Action</strong></td>
+            <td>Complete action (join club, verify request, etc.)</td>
+            <td>Data updated in ArrayLists → Confirmation message shown</td>
+        </tr>
+        <tr>
+            <td><strong>5. Loop</strong></td>
+            <td>Return to dashboard or logout</td>
+            <td>Session continues until user chooses to exit</td>
+        </tr>
+    </table>
+
+    <div class="feature-box center">
+        <h3>Console Application Data Flow</h3>
+        <p style="font-size: 18px;">
+            <strong>Console Input (Scanner) → Validation Checks → ArrayList Update → Console Output (System.out.println)</strong>
+        </p>
+        <p style="margin-top: 15px;">This is a <strong>pure Java Console Application</strong> - all interaction happens through command-line interface with menu-driven navigation.</p>
+    </div>
+
+    <hr>
+
+    <h2 id="code">Code Highlights</h2>
+    
+    <h3>Example 1: 11-Digit Student ID Validation</h3>
+    <pre><strong>// Validate 11-digit Student ID - Length Check</strong>
+final int validIdLength = 11;
+
+if (inputUsername.length() != validIdLength) {
+    System.out.println("ID must be exactly " + validIdLength + 
+        " digits! You entered: " + inputUsername.length() + " character(s).");
+    continue;
+}
+
+<strong>// Numeric-only validation using Character.isDigit()</strong>
+boolean isNumeric = true;
+for (char c : inputUsername.toCharArray()) {
+    if (!Character.isDigit(c)) {
+        isNumeric = false;
+        break;
+    }
+}
+
+if (!isNumeric) {
+    System.out.println("ID must contain ONLY numbers (no letters/symbols).\n");
+    continue;
+}</pre>
+
+    <h3>Example 2: Full Name Validation (Letters & Select Special Characters Only)</h3>
+    <pre><strong>// Name validation - Step 1: Check for numbers</strong>
+boolean nameHasNumbers = false;
+for (char c : fullName.toCharArray()) {
+    if (Character.isDigit(c)) {
+        nameHasNumbers = true;
+        break;
+    }
+}
+if (nameHasNumbers) {
+    System.out.println("Name must contain ONLY letters (numbers are NOT allowed).\n");
+    continue;
+}
+
+<strong>// Name validation - Step 2: Check for invalid special characters</strong>
+boolean nameHasInvalidChars = false;
+for (char c : fullName.toCharArray()) {
+    <strong>// Allow only: letters, spaces, hyphens, apostrophes, periods</strong>
+    if (!Character.isLetter(c) && !Character.isWhitespace(c) 
+        && c != '-' && c != '\'' && c != '.') {
+        nameHasInvalidChars = true;
+        break;
+    }
+}
+if (nameHasInvalidChars) {
+    System.out.println("Special characters (except - ' .) are not allowed.\n");
+    continue;
+}</pre>
+
+    <h3>Example 3: Year Level Selection with Suffix Logic</h3>
+    <pre><strong>// Year Level menu display</strong>
+System.out.println("Select your Year Level:");
+System.out.println("1. 1st Year");
+System.out.println("2. 2nd Year");
+System.out.println("3. 3rd Year");
+System.out.println("4. 4th Year");
+System.out.println("0. Go Back");
+
+<strong>// Convert numeric input to formatted string with suffix</strong>
+int yearLevel = scanner.nextInt();
+scanner.nextLine();  // Consume newline
+
+String yearSuffix;
+switch(yearLevel) {
+    case 1: yearSuffix = "st"; break;
+    case 2: yearSuffix = "nd"; break;
+    case 3: yearSuffix = "rd"; break;
+    default: yearSuffix = "th"; break;  // Covers 4th and any other
+}
+String yearStr = yearLevel + yearSuffix + " Year";
+<strong>// Result: "1st Year", "2nd Year", "3rd Year", "4th Year"</strong></pre>
+
+    <h3>Example 4: Admin Authentication with Case-Insensitive Username</h3>
+    <pre><strong>// Admin credentials arrays</strong>
+String[] admin = {"admin", "prof", "teach"};
+String[] adminPassword = {"admin123", "prof123", "teach123"};
+
+<strong>// Verify admin credentials against stored arrays</strong>
+for (int i = 0; i < admin.length; i++) {
+    <strong>// equalsIgnoreCase allows: admin, ADMIN, Admin, etc.</strong>
+    if (admin[i].equalsIgnoreCase(inputUsername) &&
+        adminPassword[i].equals(inputAdminPassword)) {
+            
+        loginSuccess = true;
+        currentLoggedInName = inputAdminUsername;
+        isStudent = false;
+        adminLoginRunning = false;
+        validAdmin = true;
+        break;
+    }
+}
+
+if (!validAdmin) {
+    System.out.println("\nInvalid Username or Password.\n");
+}</pre>
+
+    <h3>Example 5: Dynamic Student Registration - New vs Returning User</h3>
+    <pre><strong>// Search for existing student by ID</strong>
+int foundIndex = -1;
+for (int i = 0; i < studentIds.size(); i++) {
+    if (studentIds.get(i).equals(inputUsername)) {
+        foundIndex = i;
+        break;
+    }
+}
+
+if (foundIndex == -1) {
+    <strong>// NEW STUDENT - Create account</strong>
+    loginSuccess = true;
+    isStudent = true;
+    currentLoggedInName = fullName;
+    
+    <strong>// Add to all ArrayLists with default values</strong>
+    studentIds.add(inputUsername);
+    studentStatus.add("No Club");
+    studentJoinedClub.add(null);
+    studentRequestedClub.add(null);
+    studentLeaveReason.add(null);
+    studentNames.add(fullName);
+    studentYears.add(yearStr);
+    studentDepartments.add(DEFAULT_DEPARTMENT);  <strong>// "CITE"</strong>
+    currentUserIndex = studentIds.size() - 1;
+    
+    System.out.println("\nAccount created successfully!");
+    System.out.println("Welcome, " + fullName + "!");
+    
+} else {
+    <strong>// RETURNING STUDENT - Verify name matches records</strong>
+    String storedName = studentNames.get(foundIndex);
+    
+    if (!storedName.equalsIgnoreCase(fullName)) {
+        System.out.println("\nName does not match our records!");
+        System.out.println("Registered Name: " + storedName);
+        System.out.println("Entered Name: " + fullName);
+        System.out.println("Login denied.");
+        loginSuccess = false;
+        
+    } else {
+        <strong>// Name matches - Login successful</strong>
+        loginSuccess = true;
+        isStudent = true;
+        currentLoggedInName = storedName;
+        currentUserIndex = foundIndex;
+        studentYears.set(currentUserIndex, yearStr);  <strong>// Update year level</strong>
+        
+        System.out.println("\nWelcome back, " + storedName + "!");
+    }
+}</pre>
+
+    <h3>Example 6: Status-Based Club Registration Logic</h3>
+    <pre><strong>// Get current user's status</strong>
+String status = studentStatus.get(currentUserIndex);
+String joinedClub = studentJoinedClub.get(currentUserIndex);
+String requestedClub = studentRequestedClub.get(currentUserIndex);
+
+<strong>// Status: PENDING LEAVE - Can cancel or wait</strong>
+if (status.equals("Pending Leave")) {
+    System.out.println("You currently have a pending leave request.");
+    System.out.print("Cancel this request? (1=Yes, 2=No): ");
+    int cancelChoice = scanner.nextInt();
+    
+    if (cancelChoice == 1) {
+        studentStatus.set(currentUserIndex, "Active");
+        studentLeaveReason.set(currentUserIndex, null);
+        System.out.println("Leave request cancelled.");
+    }
+}
+
+<strong>// Status: ACTIVE - Option to leave club</strong>
+else if (status.equals("Active")) {
+    System.out.println("You are verified in: " + joinedClub);
+    System.out.print("Leave the Club? (1=Yes, 2=No): ");
+    int leaveChoice = scanner.nextInt();
+    
+    if (leaveChoice == 1) {
+        System.out.print("Reason for leaving: ");
+        String reason = scanner.nextLine();
+        studentLeaveReason.set(currentUserIndex, reason);
+        studentStatus.set(currentUserIndex, "Pending Leave");
+        System.out.println("Leave request sent to admin.");
+    }
+}
+
+<strong>// Status: PENDING - Can change club or cancel</strong>
+else if (status.equals("Pending")) {
+    System.out.println("Pending request for: " + requestedClub);
+    System.out.print("Change club (1) or Cancel (2)? ");
+    // ... change or cancel logic
+}
+
+<strong>// Status: NO CLUB - Show available clubs</strong>
+else {
+    System.out.println("=== AVAILABLE CLUBS ===");
+    for (int i = 0; i < schoolClub.length; i++) {
+        System.out.println((i+1) + ". " + schoolClub[i]);
+    }
+    <strong>// ... select club and set to Pending</strong>
+}</pre>
+
+    <hr>
+
+    <footer>
+        <p><strong>Phinma COC Club Verification System</strong></p>
+        <p>A Java Console Application Project showcasing OOP, data structures, and menu-driven design</p>
+        <p style="margin-top: 12px;">Built using <strong>Java (Scanner, ArrayList, Exception Handling)</strong></p>
+        <p style="margin-top: 12px; font-size: 14px;">&copy; 2024 | Educational Project Demonstration - Version 1.3</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
